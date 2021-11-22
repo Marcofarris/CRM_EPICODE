@@ -1,0 +1,258 @@
+<div class="container">
+  <form>
+    <div class="form-group row">
+      <div class="col-4 d-flex justify-content-end">
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="numero" name="numero" class="form-control form-control-sm" placeholder="Ricerca per id...">
+        </div>
+      </div>
+      <div class="col-8">
+        <button type="button" class="btn btn-info" (click)="vai()">Vai</button>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-6">
+      <h2>Identificativo cliente: {{oggetto.id}}</h2>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-end">
+         <button type="button" class="btn btn-dark m-2" (click)="visualizzaFatture()">Fatture</button>
+        <button type="button" class="btn btn-dark m-2" (click)="visualizzaOperativa()">Sede Operativa</button>
+        <button type="button" class="btn btn-dark m-2" (click)="visualizzaLegale()">Sede Legale</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!--Dati-->
+    <div class="col-6">
+      <form>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Ragione sociale</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.ragioneSociale" name="ragioneSociale"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Partita iva</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.partitaIva" name="partitaIva" class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Tipo cliente</label>
+          <div class="col-md-10">
+            <input type="radio" [(ngModel)]="oggetto.tipoCliente" name="tipoCliente" value="SRL">
+            <label for="SRL">SRL</label>
+            <br>
+            <input type="radio" [(ngModel)]="oggetto.tipoCliente" name="tipoCliente" value="SPA">
+            <label for="SPA">SPA</label>
+            <br>
+            <input type="radio" [(ngModel)]="oggetto.tipoCliente" name="tipoCliente" value="SAS">
+            <label for="SAS">SAS</label>
+            <br>
+            <input type="radio" [(ngModel)]="oggetto.tipoCliente" name="tipoCliente" value="PA">
+            <label for="PA">PA</label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Email</label>
+          <div class="col-md-10">
+            <input type="email" [(ngModel)]="oggetto.email" name="email" class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Pec</label>
+          <div class="col-md-10">
+            <input type="email" [(ngModel)]="oggetto.pec" name="pec" class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Telefono</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.telefono" name="telefono" class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Nome contatto</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.nomeContatto" name="nomeContatto"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Cognome contatto</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.cognomeContatto" name="cognomeContatto"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Telefono contatto</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.telefonoContatto" name="telefonoContatto"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Email contatto</label>
+          <div class="col-md-10">
+            <input type="email" [(ngModel)]="oggetto.emailContatto" name="emailContatto"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Data inserimento</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.dataInserimento" name="dataInserimento"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Data ultimo contatto</label>
+          <div class="col-md-10">
+            <input type="text" [(ngModel)]="oggetto.dataUltimoContatto" name="dataUltimoContatto"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Fatturato annuale</label>
+          <div class="col-md-10">
+            <input type="number" [(ngModel)]="oggetto.fatturatoAnnuale" name="fatturatoAnnuale"
+              class="form-control form-control-sm">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!--Sedi-->
+    <div class="col-6">
+      <!--Sede Legale-->
+      <div *ngIf="legale">
+        <h3 class="mt-2 text-center">Sede Legale</h3>
+        <form>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Via</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeLegale.via" name="via"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Civico</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeLegale.civico" name="civico"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Cap</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeLegale.cap" name="cap"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Località</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeLegale.localita" name="localita"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Comune</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeLegale.comune.nome" name="nome"
+                class="form-control form-control-sm" oninput="this.value = this.value.toUpperCase()">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Provincia</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeLegale.comune.provincia.nome" name="nome"
+                class="form-control form-control-sm" oninput="this.value = this.value.toUpperCase()">
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--Sede Operativa-->
+      <div *ngIf="operativa">
+        <h3 class="mt-2 text-center">Sede Operativa</h3>
+        <form>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Via</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeOperativa.via" name="via"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Civico</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeOperativa.civico" name="civico"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Cap</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeOperativa.cap" name="cap"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Località</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeOperativa.localita" name="localita"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Comune</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeOperativa.comune.nome" name="nome"
+                class="form-control form-control-sm" oninput="this.value = this.value.toUpperCase()">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Provincia</label>
+            <div class="col-md-10">
+              <input type="text" [(ngModel)]="oggetto.indirizzoSedeOperativa.comune.provincia.nome" name="nome"
+                class="form-control form-control-sm" oninput="this.value = this.value.toUpperCase()">
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--Fatture-->
+      <div *ngIf="fatt">
+        <h3 class="mt-2 text-center">Fatture</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Numero</th>
+              <th scope="col">Anno</th>
+              <th scope="col">Importo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of fatture; index as i">
+              <td>{{ item.numero }}</td>
+              <td>{{ item.anno }}</td>
+              <td>{{ item.importo }}</td>
+              <td>
+                <button type="button" class="btn btn-info" (click)="vediFattura(item.id)">Dettaglio</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--Pulsanti-->
+  <div *ngIf="visualizza">
+    <div class="row d-flex justify-content-end">
+      <button type="button" class="btn btn-dark m-2" (click)="modificaCliente()">Salva</button>
+      <button type="button" class="btn btn-dark m-2" (click)="eliminaCliente(oggetto)">Elimina</button>
+    </div>
+  </div>
+</div>

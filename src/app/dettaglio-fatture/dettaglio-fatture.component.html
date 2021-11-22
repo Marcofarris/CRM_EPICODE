@@ -1,0 +1,84 @@
+<div class="container">
+    <form>
+      <div class="form-group row">
+        <div class="col-4 d-flex justify-content-end">
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="numero" name="numero" class="form-control form-control-sm" placeholder="Ricerca per id...">
+          </div>
+        </div>
+        <div class="col-8">
+        <button type="button" class="btn btn-info" (click)="vai()">Vai</button>
+        </div>
+      </div>
+      </form>
+      <div class="row">
+        <div class="col-6">
+          <h2>Identificativo fattura: {{oggetto.id}}</h2>
+        </div>
+        <div class="col-6">
+        </div>
+      </div>
+      <div class="row">
+        <!--Dati-->
+        <div class="col-6">
+          <form>
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Data</label>
+              <div class="col-md-10">
+                <input type="text" [(ngModel)]="oggetto.data" name="data" class="form-control form-control-sm" readonly>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Numero</label>
+              <div class="col-md-10">
+                <input type="number" [(ngModel)]="oggetto.numero" name="numero" class="form-control form-control-sm">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Anno</label>
+              <div class="col-md-10">
+                <input type="number" [(ngModel)]="oggetto.anno" name="anno" class="form-control form-control-sm" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Importo ($)</label>
+              <div class="col-md-10">
+                <input type="number" [(ngModel)]="oggetto.importo" name="importo" class="form-control form-control-sm">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Stato pagamento</label>
+              <div class="col-md-10">
+                  <input type="radio" [(ngModel)]="oggetto.stato.nome" name="nome" value="PAGATA">
+                  <label for="PAGATA">PAGATA</label> 
+                  <br>
+                  <input type="radio" [(ngModel)]="oggetto.stato.nome" name="nome" value="NON PAGATA">
+                  <label for="NON PAGATA">NON PAGATA</label>
+              </div>
+            </div>
+      </form>
+        </div>
+        <!--Sedi-->
+        <div class="col-6">
+          <!--Sede Legale-->
+          <div>
+            <h3 class="mt-2 text-center">Cliente</h3>
+            <form>
+              <div class="form-group row">
+                <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label-sm">Ragione sociale</label>
+                <div class="col-md-10">
+                  <input readonly type="text" [(ngModel)]="oggetto.cliente.ragioneSociale" name="ragioneSociale" class="form-control form-control-sm" >
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                  <button type="button" class="btn btn-info" (click)="selectCliente(oggetto.cliente.id)">Dettaglio cliente</button>
+              </div>
+        </form>
+          </div>
+          </div>
+        </div>
+      <div class="row d-flex justify-content-end" *ngIf="visualizza">
+          <button type="button" class="btn btn-dark m-2" (click)="modificaFattura()">Salva</button>
+         <button type="button" class="btn btn-dark m-2" (click)="eliminaFattura(oggetto)">Elimina</button>
+      </div>
+    </div>

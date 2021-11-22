@@ -1,0 +1,18 @@
+.linkHeader {
+    color: black;
+}
+
+
+a:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+.testata {
+    height: 100px;
+}
+
+.logo {
+    max-width:100%;
+    max-height:100%;
+}

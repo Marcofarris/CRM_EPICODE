@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <form>
+      <div class="form-group row">
+        <div class="col-4 d-flex justify-content-end">
+        </div>
+        <div class="col-8">
+          <button type="button" class="btn btn-info">Vai</button>
+        </div>
+      </div>
+      </form>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Ragione sociale</th>
+          <th scope="col">Partita iva</th>
+          <th scope="col">Tipo cliente</th>
+          <th scope="col" class="visibilita">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of oggetti; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ item.ragioneSociale }}</td>
+          <td>{{ item.partitaIva }}</td>
+          <td>{{ item.tipoCliente }}</td>
+          <td class="visibilita">{{ item.email }}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="selectCliente(item)">Dettaglio</button>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
